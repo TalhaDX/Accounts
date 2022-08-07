@@ -6,6 +6,7 @@ import com.example.accounts.model.AccountModel;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.UUID;
 
 @RestController
@@ -28,5 +29,10 @@ public class AccountController {
     @PutMapping("/{id}")
     public AccountModel updateAccount(@PathVariable UUID id, @RequestBody AccountModel model){
         return manager.update(id, model);
+    }
+
+    @GetMapping("/all")
+    public List<AccountModel> getAll(){
+        return manager.getAllAccounts();
     }
 }

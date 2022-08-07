@@ -7,7 +7,9 @@ import com.example.accounts.service.AccountService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import java.util.List;
 import java.util.UUID;
+import java.util.stream.Collectors;
 
 @Component
 public class AccountManager {
@@ -38,5 +40,11 @@ public class AccountManager {
         accountService.update(id, account);
 
         return accountMapper.toModel(account);
+    }
+
+    public List<AccountModel> getAllAccounts() {
+        return accountService.findAll().stream()
+                .map(a -> accountMapper.toModel(a))
+                .collect(Collectors.toList());
     }
 }

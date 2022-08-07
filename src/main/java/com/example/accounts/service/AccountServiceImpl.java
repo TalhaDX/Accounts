@@ -5,6 +5,7 @@ import com.example.accounts.repository.AccountRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.UUID;
 
 @Service
@@ -28,5 +29,10 @@ public class AccountServiceImpl implements AccountService {
     @Override
     public Account find(UUID id){
         return repository.findById(id).get();
+    }
+
+    @Override
+    public List<Account> findAll() {
+        return repository.findAll();
     }
 }
