@@ -22,10 +22,7 @@ public class AccountServiceImpl implements AccountService {
     public Account update(UUID id, Account newAccount) {
         Account account = find(id);
 
-        account.setName(newAccount.getName());
-        account.setEmail(newAccount.getEmail());
-
-        return repository.save(account);
+        return repository.save(newAccount);
     }
 
     @Override
