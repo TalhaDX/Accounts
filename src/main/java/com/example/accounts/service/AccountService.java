@@ -9,4 +9,6 @@ public interface AccountService {
     Account register(Account newAccount);
 
     Account update(UUID id, Account newAccount);
+
+    Account find(UUID id);
 }

@@ -20,11 +20,16 @@ public class AccountServiceImpl implements AccountService {
 
     @Override
     public Account update(UUID id, Account newAccount) {
-        Account account = repository.findById(id).get();
+        Account account = find(id);
 
         account.setName(newAccount.getName());
         account.setEmail(newAccount.getEmail());
 
         return repository.save(account);
+    }
+
+    @Override
+    public Account find(UUID id){
+        return repository.findById(id).get();
     }
 }

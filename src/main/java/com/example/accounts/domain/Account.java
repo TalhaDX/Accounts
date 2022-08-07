@@ -7,7 +7,6 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.UUID;
 
-@NoArgsConstructor
 @AllArgsConstructor
 @Getter
 @Setter
@@ -15,9 +14,12 @@ import java.util.UUID;
 public class Account {
 
     @Id
-    @Generated
     private UUID id;
     private String name;
     private String email;
     private String password;
+
+    public Account(){
+        this.id = UUID.randomUUID();
+    }
 }
