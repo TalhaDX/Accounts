@@ -22,7 +22,7 @@ public class NotificationServiceImpl implements NotificationService {
 
         HttpEntity<NotificationModel> entity = new HttpEntity<>(model, headers);
 
-        Object answer = restTemplate.postForObject(notificationBaseUrl + "/notification", entity, Object.class);
-        System.out.println(answer);
+        ResponseEntity<HttpStatus> response = restTemplate.postForObject(notificationBaseUrl + "/notification", entity, ResponseEntity.class);
+        System.out.println(response);
     }
 }
