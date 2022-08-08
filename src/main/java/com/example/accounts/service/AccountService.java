@@ -13,7 +13,7 @@ public interface AccountService {
 
     Account update(UUID id, Account newAccount) throws NotFoundException;
 
-    Account find(UUID id);
+    Account find(UUID id) throws NotFoundException;
 
     List<Account> findAll();
 }

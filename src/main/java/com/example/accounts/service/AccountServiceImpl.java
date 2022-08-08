@@ -31,8 +31,8 @@ public class AccountServiceImpl implements AccountService {
     }
 
     @Override
-    public Account find(UUID id){
-        return repository.findById(id).get();
+    public Account find(UUID id) throws NotFoundException {
+        return repository.findById(id).orElseThrow(NotFoundException::new);
     }
 
     @Override

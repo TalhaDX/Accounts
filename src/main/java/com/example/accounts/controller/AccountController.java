@@ -24,7 +24,7 @@ public class AccountController {
     }
 
     @GetMapping("/{id}")
-    public AccountModel getAccount(@PathVariable UUID id){
+    public AccountModel getAccount(@PathVariable UUID id) throws NotFoundException {
         return manager.getAccount(id);
     }
 

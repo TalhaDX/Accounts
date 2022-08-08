@@ -31,7 +31,7 @@ public class AccountManager {
 
     }
 
-    public AccountModel getAccount(UUID id) {
+    public AccountModel getAccount(UUID id) throws NotFoundException{
         Account account = accountService.find(id);
         return accountMapper.toModel(account);
     }
