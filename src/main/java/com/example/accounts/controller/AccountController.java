@@ -1,6 +1,8 @@
 package com.example.accounts.controller;
 
 
+import com.example.accounts.exception.DuplicateException;
+import com.example.accounts.exception.NotFoundException;
 import com.example.accounts.manager.AccountManager;
 import com.example.accounts.model.AccountModel;
 import lombok.RequiredArgsConstructor;
@@ -17,7 +19,7 @@ public class AccountController {
     private final AccountManager manager;
 
     @PostMapping
-    public AccountModel register(@RequestBody AccountModel model){
+    public AccountModel register(@RequestBody AccountModel model) throws DuplicateException {
         return manager.register(model);
     }
 
@@ -27,7 +29,7 @@ public class AccountController {
     }
 
     @PutMapping("/{id}")
-    public AccountModel updateAccount(@PathVariable UUID id, @RequestBody AccountModel model){
+    public AccountModel updateAccount(@PathVariable UUID id, @RequestBody AccountModel model) throws NotFoundException {
         return manager.update(id, model);
     }
 

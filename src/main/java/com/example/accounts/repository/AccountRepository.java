@@ -8,4 +8,6 @@ import java.util.UUID;
 
 @Repository
 public interface AccountRepository extends MongoRepository<Account, UUID> {
+
+    public Account findByEmail(String email);
 }
