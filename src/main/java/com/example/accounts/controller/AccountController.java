@@ -8,6 +8,7 @@ import com.example.accounts.model.AccountModel;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 import java.util.UUID;
 
@@ -19,7 +20,7 @@ public class AccountController {
     private final AccountManager manager;
 
     @PostMapping
-    public AccountModel register(@RequestBody AccountModel model) throws DuplicateException {
+    public AccountModel register(@RequestBody @Valid AccountModel model) throws DuplicateException {
         return manager.register(model);
     }
 
