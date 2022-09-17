@@ -1,5 +1,6 @@
 package com.example.accounts.model;
 
+import com.example.accounts.validation.ValidateAccountType;
 import lombok.*;
 
 import javax.validation.constraints.Email;
@@ -19,4 +20,6 @@ public class AccountModel {
     private String email;
     @NotBlank(message = "Password can not be empty")
     private String password;
+    @ValidateAccountType
+    private String type;
 }
